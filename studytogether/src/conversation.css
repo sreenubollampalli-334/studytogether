@@ -1,0 +1,185 @@
+/* ===============================
+   🔹 MAIN CONTAINER
+================================= */
+
+.conversation-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(135deg, #0f1c2e, #1f3c5e);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ===============================
+   🔹 HEADER
+================================= */
+
+.conversation-header {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  background: #0b1624;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.conversation-header button {
+  background: transparent;
+  border: none;
+  color: #4cafef;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.conversation-header h3 {
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ===============================
+   🔹 WARNING BOX
+================================= */
+
+.warning-box {
+  margin: auto;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 320px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.warning-box button {
+  margin-top: 15px;
+  padding: 8px 15px;
+  border: none;
+  background: #0f1c2e;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* ===============================
+   🔹 CHAT AREA
+================================= */
+
+.chat-area {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 15px;
+}
+
+/* ===============================
+   🔹 MESSAGE CONTAINER
+================================= */
+
+.messages-container {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Scrollbar Styling */
+.messages-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.messages-container::-webkit-scrollbar-thumb {
+  background: #4cafef;
+  border-radius: 3px;
+}
+
+/* ===============================
+   🔹 MESSAGE BUBBLES
+================================= */
+
+.message-bubble {
+  max-width: 60%;
+  padding: 10px 14px;
+  border-radius: 18px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  word-wrap: break-word;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+/* Sender message */
+.sent {
+  align-self: flex-end;
+  background: #4caf50;
+  color: white;
+  border-bottom-right-radius: 5px;
+}
+
+/* Receiver message */
+.received {
+  align-self: flex-start;
+  background: #ffffff;
+  color: #333;
+  border-bottom-left-radius: 5px;
+}
+
+/* ===============================
+   🔹 INPUT AREA
+================================= */
+
+.input-area {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  background: #0b1624;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.input-area input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.input-area button {
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: none;
+  background: #4cafef;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.input-area button:hover {
+  background: #1d8fe1;
+}
+
+/* ===============================
+   🔹 LOADING TEXT
+================================= */
+
+.loading {
+  margin: auto;
+  color: white;
+  font-size: 18px;
+}
+
+/* ===============================
+   🔹 ANIMATION
+================================= */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

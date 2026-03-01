@@ -1,0 +1,735 @@
+/* ================= GLOBAL ================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  background: #0f1c2e;
+  overflow-x: hidden;
+}
+
+/* ================= MAIN CONTAINER ================= */
+
+.main-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(
+      rgba(15, 28, 46, 0.88),
+      rgba(15, 28, 46, 0.88)
+    ),
+    url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* ================= NAVBAR ================= */
+
+.top-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: rgba(19, 41, 75, 0.85);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.nav-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* ================= SEARCH ================= */
+
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 45px;
+  height: 40px;
+  border-radius: 25px;
+  background: #1f3b73;
+  overflow: hidden;
+  transition: width 0.4s ease;
+}
+
+.search-container.active {
+  width: 320px;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  width: 100%;
+  padding: 0 15px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.search-container.active .search-input {
+  opacity: 1;
+}
+
+.search-icon {
+  position: absolute;
+  right: 8px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* ================= BUTTONS ================= */
+
+.icon-button,
+.nav-button {
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.icon-button {
+  background: #1f3b73;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+}
+
+.icon-button:hover {
+  background: #2c5aa0;
+  transform: translateY(-2px);
+}
+
+.nav-button {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 8px 20px;
+}
+
+.nav-button:hover {
+  background: white;
+  color: #13294b;
+  transform: translateY(-2px);
+}
+
+.signup {
+  background: #2c5aa0;
+  border: none;
+}
+
+.signup:hover {
+  background: #1f3b73;
+  color: white;
+}
+
+.profile-btn {
+  background: #00aaff;
+  border: 1px solid white;
+  color: white;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-btn:hover {
+  background: #0088cc;
+  transform: scale(1.05);
+}
+
+/* ================= HERO ================= */
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 120px 20px;
+}
+
+.content h1 {
+  font-size: 64px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #4da8ff, #00e0ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(77, 168, 255, 0.5);
+  animation: fadeUp 1.2s ease-in-out;
+}
+
+.content p {
+  font-size: 22px;
+  color: #d0e6ff;
+  animation: fadeUp 1.8s ease-in-out;
+}
+
+/* ================= PROFILE PAGE ================= */
+
+.profile-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+
+  background: 
+    linear-gradient(rgba(255,255,255,0.88), rgba(240,253,244,0.88)),
+    url("https://images.unsplash.com/photo-1604079628040-94301bb21b91?q=80&w=1974&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+}
+
+/* ================= PROFILE CARD ================= */
+
+.profile-card {
+  width: 420px;
+  max-width: 95%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(18px);
+  padding: 45px 35px;
+  border-radius: 22px;
+  box-shadow: 0 25px 60px rgba(16, 185, 129, 0.15);
+  border: 1px solid #d1fae5;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: 0.3s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-6px);
+}
+
+.profile-card h2 {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  color: #15803d;
+}
+
+/* ================= PROFILE IMAGE ================= */
+
+.profile-pic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #16a34a;
+  box-shadow: 0 10px 25px rgba(22, 163, 74, 0.25);
+  transition: 0.3s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.05);
+}
+
+.change-text {
+  font-size: 12px;
+  color: #16a34a;
+  margin-top: 6px;
+}
+
+/* ================= FORM ================= */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #16a34a;
+}
+
+.profile-card input,
+.profile-card textarea,
+.login-card input,
+.register-card input {
+  padding: 13px;
+  border-radius: 12px;
+  border: 1px solid #d1fae5;
+  font-size: 14px;
+  background: #f9fffb;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+.profile-card input:focus,
+.profile-card textarea:focus,
+.login-card input:focus,
+.register-card input:focus {
+  border: 1px solid #16a34a;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.15);
+  background: white;
+}
+
+.profile-card textarea {
+  resize: none;
+  height: 100px;
+}
+.nav-profile-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ================= AUTH PAGES ================= */
+
+.login-page,
+.register-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: 
+    linear-gradient(rgba(255,255,255,0.9), rgba(240,253,244,0.9)),
+    url("https://images.unsplash.com/photo-1604079628040-94301bb21b91?q=80&w=1974&auto=format&fit=crop");
+  background-size: cover;
+}
+
+.login-card,
+.register-card {
+  width: 400px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(15px);
+  padding: 45px 35px;
+  border-radius: 20px;
+  box-shadow: 0 25px 60px rgba(16, 185, 129, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ================= BUTTON STYLES ================= */
+
+.save-btn,
+.login-btn,
+.register-btn,
+.connect-btn {
+  padding: 14px;
+  border-radius: 25px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  background: linear-gradient(135deg, #16a34a, #15803d);
+  color: white;
+}
+
+.save-btn:hover,
+.login-btn:hover,
+.register-btn:hover,
+.connect-btn:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+
+.connect-btn.requested {
+  background: #10b9ae;
+  cursor: not-allowed;
+}
+
+.connect-btn:disabled {
+  opacity: 0.85;
+}
+
+/* ================= STUDENTS ================= */
+
+/* ================= STUDENTS SECTION ================= */
+
+.students-section {
+  padding: 80px 40px;
+  text-align: center;
+  background: transparent;
+}
+
+.students-section h2 {
+  color: #15803d;
+  margin-bottom: 50px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* GRID CONTAINER */
+.students-grid {
+  max-width: 1200px;         /* Prevent full page stretch */
+  margin: 0 auto;            /* Center grid */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+/* ================= CARD DESIGN ================= */
+
+.student-card {
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+  padding: 25px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(16, 185, 129, 0.12);
+  transition: 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glow Effect */
+.student-card::before {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: rgba(22, 163, 74, 0.1);
+  border-radius: 50%;
+  top: -40px;
+  right: -40px;
+}
+
+.student-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(16, 185, 129, 0.2);
+}
+
+.student-card img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid #16a34a;
+}
+
+.student-card h3 {
+  margin-bottom: 8px;
+  color: #16a34a;
+}
+
+.student-card p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* ================= HELP BUTTON ================= */
+
+.help-button {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  font-size: 24px;
+  background: linear-gradient(135deg, #6366f1, #22d3ee);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: 0.3s ease;
+}
+
+.help-button:hover {
+  transform: scale(1.1);
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.theme-toggle-btn {
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+  transform: rotate(20deg) scale(1.2);
+}
+/* ===================================================== */
+/* ================= THEME OVERRIDES ONLY ============== */
+/* ===================================================== */
+
+/* ---------------- DEFAULT (OCEAN) ---------------- */
+/* Your current design is already ocean-like */
+/* So no changes needed for ocean */
+
+
+/* ---------------- DARK MODE ---------------- */
+
+[data-theme="dark"] body {
+  background: #0f172a;
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .top-navbar {
+  background: rgba(15, 23, 42, 0.95);
+}
+
+[data-theme="dark"] .icon-button {
+  background: #334155;
+}
+
+[data-theme="dark"] .nav-button {
+  border: 1px solid #f1f5f9;
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .nav-button:hover {
+  background: #22c55e;
+  color: white;
+}
+
+[data-theme="dark"] .profile-card,
+[data-theme="dark"] .login-card,
+[data-theme="dark"] .register-card,
+[data-theme="dark"] .student-card {
+  background: #1e293b;
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea {
+  background: #334155;
+  color: #f1f5f9;
+  border: 1px solid #22c55e;
+}
+
+[data-theme="dark"] .students-section h2,
+[data-theme="dark"] .profile-card h2 {
+  color: #22c55e;
+}
+
+
+/* ---------------- LIGHT MODE ---------------- */
+
+[data-theme="light"] body {
+  background: #ffffff;
+  color: #1f2937;
+}
+
+[data-theme="light"] .top-navbar {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="light"] .icon-button {
+  background: #e5e7eb;
+  color: #1f2937;
+}
+
+[data-theme="light"] .nav-button {
+  border: 1px solid #1f2937;
+  color: #1f2937;
+}
+
+[data-theme="light"] .nav-button:hover {
+  background: #16a34a;
+  color: white;
+}
+
+[data-theme="light"] .profile-card,
+[data-theme="light"] .login-card,
+[data-theme="light"] .register-card,
+[data-theme="light"] .student-card {
+  background: #ffffff;
+  color: #1f2937;
+}
+
+[data-theme="light"] input,
+[data-theme="light"] textarea {
+  background: #f3f4f6;
+  color: #1f2937;
+  border: 1px solid #16a34a;
+}
+
+[data-theme="light"] .students-section h2,
+[data-theme="light"] .profile-card h2 {
+  color: #15803d;
+}
+
+
+/* ===================================================== */
+/* ================= SMOOTH TRANSITION ================= */
+/* ===================================================== */
+
+body,
+.top-navbar,
+.profile-card,
+.student-card,
+.login-card,
+.register-card,
+input,
+textarea,
+.icon-button,
+.nav-button {
+  transition: background 0.3s ease,
+              color 0.3s ease,
+              border 0.3s ease;
+}
+/* ===================================================== */
+/* ================= UNIQUE FOOTER ===================== */
+/* ===================================================== */
+
+.footer {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+  padding: 50px 20px 20px 20px;
+  margin-top: 80px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: center;
+}
+
+.footer-brand h3 {
+  font-size: 22px;
+  margin-bottom: 5px;
+  color: #22c55e;
+}
+
+.footer-brand p {
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #e2e8f0;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #22c55e;
+  transform: translateY(-2px);
+}
+
+.footer-social {
+  display: flex;
+  gap: 18px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.footer-social i {
+  transition: 0.3s ease;
+}
+
+.footer-social i:hover {
+  color: #22c55e;
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #334155;
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* ================= INTERACTIVE FOOTER ================= */
+
+/* ================= INTERACTIVE FOOTER ================= */
+
+.interactive-footer {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+  padding: 50px 20px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-logo {
+  font-size: 24px;
+  color: #22c55e;
+  margin-bottom: 8px;
+  transition: 0.3s ease;
+}
+
+.footer-logo:hover {
+  letter-spacing: 2px;
+}
+
+.footer-tagline {
+  font-size: 14px;
+  color: #94a3b8;
+  margin-bottom: 15px;
+}
+
+.footer-hover-text {
+  font-size: 13px;
+  color: #22c55e;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.interactive-footer:hover .footer-hover-text {
+  opacity: 1;
+}
+
+.footer-bottom {
+  border-top: 1px solid #334155;
+  margin-top: 25px;
+  padding-top: 15px;
+  font-size: 13px;
+  color: #94a3b8;
+}
